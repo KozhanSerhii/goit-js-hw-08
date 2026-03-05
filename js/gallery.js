@@ -94,15 +94,13 @@ box.addEventListener("click", function (event) {
   }
 	console.log(event.target.dataset.source);
 
-  const ass = document.querySelector('.gallery');
+  const ass = event.target.dataset.source;
 
-  ass.addEventListener("click", function (event) {
-    basicLightbox.create(`
-		<img width="1400" height="900" src="${event.target.dataset.source}">
-	`).show()
-  })
+  const instance = basicLightbox.create(`
+    <div class="modal">
+        <img src="${ass}" width="1400" height="900">
+    </div>
+  `);
   
-
-	
-
+  instance.show();
 });
