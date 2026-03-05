@@ -85,7 +85,7 @@ const markup = images
 gallery.insertAdjacentHTML("beforeend", markup);
 
 
-const box = document.querySelector(".gallery")
+const box = document.querySelector(".gallery");
 
 box.addEventListener("click", function (event) {
   event.preventDefault();
@@ -94,12 +94,15 @@ box.addEventListener("click", function (event) {
   }
 	console.log(event.target.dataset.source);
 
-  document.querySelector('.gallery').onclick = () => {
+  const ass = document.querySelector('.gallery');
 
-	basicLightbox.create(`
+  ass.addEventListener("click", function (event) {
+    basicLightbox.create(`
 		<img width="1400" height="900" src="${event.target.dataset.source}">
 	`).show()
+  })
+  
 
-}
+	
 
 });
